@@ -1,0 +1,240 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link " 이온히팅" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e6]: 
+        - text: 이온히팅
+      - generic [ref=e7]:
+        - link "도입실적" [ref=e8] [cursor=pointer]:
+          - /url: "#reference"
+        - link "성능비교" [ref=e9] [cursor=pointer]:
+          - /url: "#comparison"
+        - link "성공사례" [ref=e10] [cursor=pointer]:
+          - /url: "#case"
+        - link "상담신청" [ref=e11] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e12]:
+        - button " 나에게 보내기" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: 
+          - text: 나에게 보내기
+        - link "무료 상담" [ref=e15] [cursor=pointer]:
+          - /url: "#contact"
+  - banner [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e19]: 🏆 미국 CES 2025 혁신상 수상
+      - heading "에너지원 상관없이 비용 70% 절감" [level=1] [ref=e20]:
+        - generic [ref=e21]: 에너지원 상관없이
+        - generic [ref=e22]: 비용 70% 절감
+      - paragraph [ref=e23]:
+        - text: 현대자동차, 롯데월드가 선택한 차세대 고효율 가열 솔루션.
+        - text: 새어나가는 에너지 고정비를 이온히팅이 수익으로 돌려드립니다.
+      - generic [ref=e24]:
+        - link " 내 업소 절감 시뮬레이션" [ref=e25] [cursor=pointer]:
+          - /url: "#calculator"
+          - generic [ref=e26]: 
+          - text: 내 업소 절감 시뮬레이션
+        - link " 무료 방문 상담 신청" [ref=e27] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e28]: 
+          - text: 무료 방문 상담 신청
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: 
+          - generic [ref=e32]: 한전 ES 공식 파트너
+        - generic [ref=e33]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: KCL 공인 인증
+        - generic [ref=e36]:
+          - generic [ref=e37]: 
+          - generic [ref=e38]: 초기비용 0원 분할상환
+    - generic [ref=e40]: 
+  - generic [ref=e42]:
+    - paragraph [ref=e43]: MAJOR PARTNERS & REFERENCES
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]: 현대자동차
+        - generic [ref=e47]: 생산공정 에너지 최적화
+      - generic [ref=e48]:
+        - generic [ref=e49]: 롯데월드
+        - generic [ref=e50]: 대규모 시설 가열 솔루션
+      - generic [ref=e51]:
+        - generic [ref=e52]: 현대아울렛
+        - generic [ref=e53]: 상업 시설 난방비 절감
+  - generic [ref=e55]:
+    - generic [ref=e56]:
+      - generic [ref=e58]: 
+      - heading "정밀 절감 시뮬레이션" [level=2] [ref=e59]
+      - paragraph [ref=e60]: 관리비까지 포함한 실제 절감액을 확인하세요
+    - generic [ref=e61]:
+      - generic [ref=e63]:
+        - heading "현재 운영 환경 입력" [level=4] [ref=e64]
+        - generic [ref=e65]:
+          - generic [ref=e66]: 에너지원 종류
+          - combobox [ref=e67] [cursor=pointer]:
+            - option "전기보일러 (심야전기 포함)" [selected]
+            - option "기름보일러 (등유/경유)"
+            - option "공기열 히트펌프"
+            - option "도시가스 / LPG"
+            - option "기타 방식"
+        - generic [ref=e68]:
+          - generic [ref=e69]: 월 평균 에너지 요금
+          - generic [ref=e70]:
+            - spinbutton [ref=e71]
+            - generic [ref=e72]: 원
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: 현재 연간 소모품비
+            - generic [ref=e76]:
+              - spinbutton [ref=e77]
+              - generic [ref=e78]: 원
+          - generic [ref=e79]:
+            - generic [ref=e80]: 현재 연간 유지보수비
+            - generic [ref=e81]:
+              - spinbutton [ref=e82]
+              - generic [ref=e83]: 원
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - paragraph [ref=e88]: 월 평균 에너지 절감액
+              - paragraph [ref=e89]: 약 0원
+            - generic [ref=e90]: 70% 절약
+          - generic [ref=e92]: 
+        - generic [ref=e93]:
+          - heading " 누적 비용 절감액 (기대 수익)" [level=4] [ref=e94]:
+            - generic [ref=e95]: 
+            - text: 누적 비용 절감액 (기대 수익)
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: 1년 누적
+              - paragraph [ref=e99]: 0원
+            - generic [ref=e100]:
+              - paragraph [ref=e101]: 5년 누적
+              - paragraph [ref=e102]: 0원
+            - generic [ref=e103]:
+              - paragraph [ref=e104]: 10년 누적
+              - paragraph [ref=e105]: 0원
+          - paragraph [ref=e106]: "* 연간 에너지 절감액 + (현재 소모품/보수비 - 이온히팅 고정비 40만원)를 합산한 결과입니다."
+        - link " 이 금액으로 무료 상담 신청" [ref=e107] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e108]: 
+          - text: 이 금액으로 무료 상담 신청
+  - generic [ref=e110]:
+    - generic [ref=e111]:
+      - heading "검증된 압도적 효율" [level=2] [ref=e112]
+      - generic [ref=e113]:
+        - generic [ref=e114]: 
+        - text: "KCL 공인 테스트 결과: 히트펌프 대비 28.1% 고효율 검증 완료"
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - heading " 전기보일러 대비 에너지 소비량" [level=3] [ref=e117]:
+          - generic [ref=e118]: 
+          - generic [ref=e119]: 전기보일러 대비 에너지 소비량
+        - generic [ref=e120]:
+          - generic [ref=e122]:
+            - generic [ref=e123]: 기존 저항식 전기보일러
+            - generic [ref=e124]: 100%
+          - generic [ref=e128]:
+            - generic [ref=e129]: 이온히팅 시스템
+            - generic [ref=e130]: 30% (70% 절약)
+      - generic [ref=e133]:
+        - heading " 히트펌프 대비 에너지 소비량" [level=3] [ref=e134]:
+          - generic [ref=e135]: 
+          - generic [ref=e136]: 히트펌프 대비 에너지 소비량
+        - generic [ref=e137]:
+          - generic [ref=e139]:
+            - generic [ref=e140]: 공기열 히트펌프
+            - generic [ref=e141]: 100%
+          - generic [ref=e145]:
+            - generic [ref=e146]: 이온히팅 시스템
+            - generic [ref=e147]: 70% (30% 절약)
+  - generic [ref=e152]:
+    - generic [ref=e153]:
+      - generic [ref=e154]: REAL CASE STUDY
+      - heading "대진요양시설 5개월간 2,600만원 절감" [level=2] [ref=e155]:
+        - text: 대진요양시설
+        - text: 5개월간 2,600만원 절감
+      - paragraph [ref=e156]:
+        - text: 500평 규모의 대진요양시설에서 기름보일러를 이온히팅으로 교체한 결과, 동절기 5개월 누적 기준 평균
+        - strong [ref=e157]: 68%
+        - text: 의 에너지 비용이 절감되었습니다.
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - paragraph [ref=e160]: 기존 기름보일러
+          - paragraph [ref=e161]: 3,817만원
+        - generic [ref=e162]:
+          - paragraph [ref=e163]: 이온히팅 전환 후
+          - paragraph [ref=e164]: 1,217만원
+    - generic [ref=e165]:
+      - heading " 동절기 월별 절감 리포트" [level=4] [ref=e166]:
+        - generic [ref=e167]: 
+        - text: 동절기 월별 절감 리포트
+      - generic [ref=e168]:
+        - generic [ref=e169]:
+          - generic [ref=e170]: 25년 11월
+          - generic [ref=e174]: 76% 절감
+        - generic [ref=e175]:
+          - generic [ref=e176]: 25년 12월
+          - generic [ref=e180]: 67% 절감
+        - generic [ref=e181]:
+          - generic [ref=e182]: 26년 1월
+          - generic [ref=e186]: 61% 절감
+        - generic [ref=e187]:
+          - generic [ref=e188]: 26년 2월
+          - generic [ref=e192]: 65% 절감
+        - generic [ref=e193]:
+          - generic [ref=e194]: 26년 3월
+          - generic [ref=e198]: 73% 절감
+        - generic [ref=e199]:
+          - generic [ref=e200]: 5개월 평균
+          - generic [ref=e201]: 68% 절감
+  - generic [ref=e204]:
+    - generic [ref=e205]:
+      - heading "사장님은 오직 수익에만 집중하세요" [level=2] [ref=e206]:
+        - text: 사장님은 오직
+        - text: 수익에만 집중하세요
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - generic [ref=e210]: 
+          - generic [ref=e211]:
+            - heading "한전 ES 공식 파트너십" [level=4] [ref=e212]
+            - paragraph [ref=e213]: 검증된 공신력으로 가장 안전한 에너지 효율화 사업 진행
+        - generic [ref=e214]:
+          - generic [ref=e216]: 
+          - generic [ref=e217]:
+            - heading "초기 부담 ZERO 분할 상환" [level=4] [ref=e218]
+            - paragraph [ref=e219]: 절감된 에너지 요금으로 설치비를 분할 상환 (5년)
+        - generic [ref=e220]:
+          - generic [ref=e222]: 
+          - generic [ref=e223]:
+            - heading "유지보수 스트레스 해방" [level=4] [ref=e224]
+            - paragraph [ref=e225]: 연간 40만원 수준의 합리적인 관리비로 안정적 운영
+    - generic [ref=e227]:
+      - heading " 무료 상담 신청" [level=3] [ref=e228]:
+        - generic [ref=e229]: 
+        - text: 무료 상담 신청
+      - paragraph [ref=e230]: 사장님 업소에 맞는 최적의 설계안을 제안해 드립니다.
+      - generic [ref=e231]:
+        - textbox "성함 또는 상호명" [ref=e232]
+        - textbox "연락처 (숫자만 입력)" [ref=e233]
+        - combobox [ref=e234] [cursor=pointer]:
+          - option "업종 선택" [selected]
+          - option "목욕탕 / 사우나"
+          - option "호텔 / 모텔 / 숙박시설"
+          - option "원룸 / 오피스텔 / 기숙사"
+          - option "요양원 / 공장 / 기타 시설"
+        - button " 카카오로 상담 신청하기" [ref=e235] [cursor=pointer]:
+          - generic [ref=e236]: 
+          - text: 카카오로 상담 신청하기
+      - paragraph [ref=e237]:
+        - generic [ref=e238]: 
+        - text: 개인정보는 상담 목적 외 사용되지 않습니다.
+  - text:  
+  - contentinfo [ref=e239]:
+    - generic [ref=e240]:
+      - generic [ref=e241]:
+        - generic [ref=e242]: 
+        - text: 이온히팅
+      - paragraph [ref=e243]: KEPCO Energy Solution Partner | New Energy Co., Ltd.
+      - paragraph [ref=e244]: 본 시뮬레이션 결과는 사용자가 입력한 데이터를 바탕으로 하며, 실제 설치 환경(단열, 외기온도 등)에 따라 결과가 다를 수 있습니다.

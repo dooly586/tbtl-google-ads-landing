@@ -604,7 +604,7 @@
                                 <option value="원룸">원룸 / 오피스텔 / 기숙사</option>
                                 <option value="기타">요양원 / 공장 / 기타 시설</option>
                             </select>
-                            <button id="form-submit" type="button" onclick="openKakaoChat()"
+                            <button id="form-submit" type="button" onclick="submitConsultation()"
                                 class="w-full bg-blue-600 hover:bg-blue-500 active:scale-[0.98] text-white font-black py-4 sm:py-5 rounded-xl text-base sm:text-lg transition-all shadow-lg shadow-blue-500/20 mt-2">
                                 <i class="fas fa-comment mr-2"></i>카카오로 상담 신청하기
                             </button>
@@ -658,7 +658,6 @@
          스크립트
     ══════════════════════════════════════ -->
     <script>
-        /* ── 카카오채널 1:1 채팅 열기 ── */
         function openKakaoChat() {
             window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
         }
@@ -751,6 +750,43 @@
             document.getElementById('profit5yr').innerText   = formatKorean(Math.max(0, totalAnnual * 5));
             document.getElementById('profit10yr').innerText  = formatKorean(Math.max(0, totalAnnual * 10));
         }
+    </script>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+        const app = initializeApp({
+            apiKey: "AIzaSyCqj-jv_c4cRkjOrLz0sQmv-huvCyRDS7w",
+            authDomain: "tbtl-ads-landing.firebaseapp.com",
+            projectId: "tbtl-ads-landing",
+            storageBucket: "tbtl-ads-landing.firebasestorage.app",
+            messagingSenderId: "346191751200",
+            appId: "1:346191751200:web:99c4f8029d54c82e3eb445"
+        });
+        const db = getFirestore(app);
+
+        window.submitConsultation = async function() {
+            const name = document.getElementById('form-name').value.trim();
+            const tel  = document.getElementById('form-tel').value.trim();
+            const biz  = document.getElementById('form-biz').value;
+
+            if (!name || !tel) {
+                alert('성함과 연락처를 입력해 주세요.');
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, 'consultations'), {
+                    name, tel, biz,
+                    createdAt: serverTimestamp()
+                });
+            } catch (e) {
+                console.error('저장 오류:', e);
+            }
+
+            window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
+        };
     </script>
 </body>
 </html>
