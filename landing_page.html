@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이온히팅 | 에너지 비용 혁신 솔루션</title>
+    <meta name="description" content="현대자동차, 롯데월드가 선택한 차세대 고효율 이온히팅 시스템. 에너지 비용 최대 70% 절감. 무료 방문 상담 신청.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        * { -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
+
+        /* ── 컬러 토큰 ── */
+        .bg-navy      { background-color: #0a192f; }
+        .text-navy    { color: #0a192f; }
+        .text-neon-green { color: #2ecc71; }
+        .bg-neon-green   { background-color: #2ecc71; }
+        .border-neon-green { border-color: #2ecc71; }
+
+        /* ── 그라디언트 ── */
+        .gradient-bg { background: linear-gradient(145deg, #06101f 0%, #0d2244 50%, #0a192f 100%); }
+        .gradient-hero { background: linear-gradient(145deg, #06101f 0%, #0e2747 60%, #112240 100%); }
+
+        /* ── 애니메이션 키프레임 ── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes barGrow {
+            from { width: 0; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.4); }
+            50%       { box-shadow: 0 0 0 12px rgba(46,204,113,0); }
+        }
+        @keyframes shimmer {
+            0%   { background-position: -200% center; }
+            100% { background-position:  200% center; }
+        }
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-8px); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        /* ── 유틸리티 애니메이션 ── */
+        .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-fadeIn   { animation: fadeIn   0.3s ease-out forwards; }
+        .animate-scaleIn  { animation: scaleIn  0.5s ease-out forwards; }
+        .animate-float    { animation: floatY 3s ease-in-out infinite; }
+
+        /* ── 딜레이 ── */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .opacity-0-init { opacity: 0; }
+
+        /* ── 바 애니메이션 ── */
+        .bar-animate { animation: barGrow 1.4s cubic-bezier(.22,1,.36,1) forwards; }
+
+        /* ── 글로우 펄스 ── */
+        .pulse-green { animation: pulse-glow 2s ease-in-out infinite; }
+
+        /* ── 쉬머 버튼 ── */
+        .shimmer-btn {
+            background: linear-gradient(90deg, #2ecc71 0%, #27ae60 45%, #a8f0c6 50%, #27ae60 55%, #2ecc71 100%);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* ── 글래스모피즘 ── */
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+
+        /* ── 카드 호버 ── */
+        .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+        /* ── 네비 링크 언더라인 ── */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0;
+            width: 0; height: 2px; background: #2563eb;
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ── 인풋 포커스 링 ── */
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+
+        /* ── 스크롤바 숨김 (모바일) ── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+
+        /* ── 파트너 로고 행 ── */
+        .partner-row { display: flex; gap: 0; }
+        .partner-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 0; }
+        .partner-item + .partner-item { border-left: 1px solid #e2e8f0; }
+
+        /* ── 모바일 타이포 보정 ── */
+        @media (max-width: 380px) {
+            .hero-title-main { font-size: 1.9rem !important; }
+            .hero-title-sub  { font-size: 2.4rem !important; }
+        }
+
+        /* ── 하단바 safe area ── */
+        .bottom-bar-safe { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- ══════════════════════════════════════
+         상단 고정 네비게이션
+    ══════════════════════════════════════ -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 py-3 bg-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <!-- 로고 -->
+            <a href="#" class="flex items-center gap-2 font-black text-xl text-white drop-shadow">
+                <span class="bg-amber-400 text-amber-900 w-8 h-8 rounded-lg flex items-center justify-center text-sm shadow-md">
+                    <i class="fas fa-bolt"></i>
+                </span>
+                이온히팅
+            </a>
+
+            <!-- 데스크탑 메뉴 -->
+            <div class="hidden md:flex gap-8 text-sm font-bold text-white/80">
+                <a href="#reference"  class="nav-link hover:text-white transition-colors">도입실적</a>
+                <a href="#comparison" class="nav-link hover:text-white transition-colors">성능비교</a>
+                <a href="#case"       class="nav-link hover:text-white transition-colors">성공사례</a>
+                <a href="#contact"    class="nav-link hover:text-white transition-colors">상담신청</a>
+            </div>
+
+            <!-- 우측 버튼 -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="sendToMe()" class="hidden md:flex items-center gap-1.5 bg-[#FEE500] text-[#3c1e1e] px-4 py-2 rounded-full font-bold text-xs hover:bg-yellow-300 transition-colors shadow">
+                    <i class="fas fa-share text-xs"></i> 나에게 보내기
+                </button>
+                <a href="#contact" class="bg-blue-500 text-white px-4 sm:px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-400 transition-colors shadow">
+                    무료 상담
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+         히어로 섹션
+    ══════════════════════════════════════ -->
+    <header class="min-h-screen flex items-center gradient-hero text-white px-4 sm:px-6 relative overflow-hidden pt-20 pb-24 sm:pb-32">
+
+        <!-- 배경 데코 -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-32 -right-32 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-blue-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-20 w-72 sm:w-96 h-72 sm:h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10 w-full">
+            <!-- 뱃지 -->
+            <div class="animate-fadeInUp opacity-0-init inline-flex items-center gap-2 bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/20 mb-6 sm:mb-8">
+                <span class="text-amber-400 font-bold text-xs sm:text-sm">🏆 미국 CES 2025 혁신상 수상</span>
+            </div>
+
+            <!-- 헤드라인 -->
+            <h1 class="animate-fadeInUp opacity-0-init delay-100 font-black leading-[1.15] mb-5 sm:mb-6">
+                <span class="hero-title-main block text-3xl sm:text-5xl md:text-6xl text-white/90 mb-1">에너지원 상관없이</span>
+                <span class="hero-title-sub block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-neon-green" style="text-shadow: 0 0 40px rgba(46,204,113,0.35);">비용 70% 절감</span>
+            </h1>
+
+            <!-- 서브카피 -->
+            <p class="animate-fadeInUp opacity-0-init delay-200 text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-2xl font-medium leading-relaxed">
+                현대자동차, 롯데월드가 선택한 차세대 고효율 가열 솔루션.<br class="hidden sm:block"/>
+                새어나가는 에너지 고정비를 이온히팅이 수익으로 돌려드립니다.
+            </p>
+
+            <!-- CTA 버튼 -->
+            <div class="animate-fadeInUp opacity-0-init delay-300 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a href="#calculator" id="hero-cta-sim"
+                   class="shimmer-btn text-slate-900 px-7 sm:px-8 py-4 rounded-2xl font-black text-base sm:text-lg hover:scale-105 transition-transform shadow-xl shadow-green-500/30 text-center pulse-green">
+                    <i class="fas fa-calculator mr-2"></i>내 업소 절감 시뮬레이션
+                </a>
+                <a href="#contact" id="hero-cta-consult"
+                   class="glass text-white px-7 sm:px-8 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-white/10 transition-all text-center">
+                    <i class="fas fa-phone mr-2"></i>무료 방문 상담 신청
+                </a>
+            </div>
+
+            <!-- 신뢰 지표 -->
+            <div class="animate-fadeInUp opacity-0-init delay-400 flex flex-wrap gap-4 sm:gap-6 mt-10 sm:mt-12">
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400">
+                    <i class="fas fa-check-circle text-neon-green"></i>
+                    <span>한전 ES 공식 파트너</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400">
+                    <i class="fas fa-check-circle text-neon-green"></i>
+                    <span>KCL 공인 인증</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-400">
+                    <i class="fas fa-check-circle text-neon-green"></i>
+                    <span>초기비용 0원 분할상환</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 스크롤 화살표 -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i class="fas fa-chevron-down text-white text-lg"></i>
+        </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════
+         주요 도입 실적 (파트너 바)
+    ══════════════════════════════════════ -->
+    <section id="reference" class="py-10 sm:py-14 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs sm:text-sm mb-6 sm:mb-8">MAJOR PARTNERS &amp; REFERENCES</p>
+
+            <div class="partner-row">
+                <div class="partner-item group cursor-default">
+                    <span class="text-xl sm:text-2xl font-black text-slate-700 group-hover:text-blue-700 transition-colors">현대자동차</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400">생산공정 에너지 최적화</span>
+                </div>
+                <div class="partner-item group cursor-default">
+                    <span class="text-xl sm:text-2xl font-black text-slate-700 group-hover:text-blue-700 transition-colors">롯데월드</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400">대규모 시설 가열 솔루션</span>
+                </div>
+                <div class="partner-item group cursor-default">
+                    <span class="text-xl sm:text-2xl font-black text-slate-700 group-hover:text-blue-700 transition-colors">현대아울렛</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400">상업 시설 난방비 절감</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         절감 시뮬레이션 계산기
+    ══════════════════════════════════════ -->
+    <section id="calculator" class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto bg-white rounded-3xl sm:rounded-[3rem] p-6 sm:p-10 md:p-14 border border-slate-100 shadow-2xl">
+
+            <!-- 헤더 -->
+            <div class="text-center mb-10 sm:mb-14">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-2xl mb-4">
+                    <i class="fas fa-calculator text-3xl text-blue-600"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900">정밀 절감 시뮬레이션</h2>
+                <p class="text-slate-500 mt-2 font-medium text-sm sm:text-base">관리비까지 포함한 실제 절감액을 확인하세요</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-6 sm:gap-10 lg:gap-12">
+                <!-- ── 입력부 ── -->
+                <div class="lg:col-span-2 text-left">
+                    <div class="bg-slate-50 p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-slate-100 space-y-5">
+                        <h4 class="font-black text-slate-800 border-l-4 border-blue-600 pl-3 text-sm sm:text-base">현재 운영 환경 입력</h4>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1.5 ml-1 uppercase tracking-wide">에너지원 종류</label>
+                            <select id="energyType" onchange="calculate()"
+                                class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-sm sm:text-base font-bold bg-white cursor-pointer">
+                                <option value="electric">전기보일러 (심야전기 포함)</option>
+                                <option value="oil">기름보일러 (등유/경유)</option>
+                                <option value="heatpump">공기열 히트펌프</option>
+                                <option value="gas">도시가스 / LPG</option>
+                                <option value="other">기타 방식</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 mb-1.5 ml-1 uppercase tracking-wide">월 평균 에너지 요금</label>
+                            <div class="relative">
+                                <input type="number" id="currentBill" placeholder="5,000,000" oninput="calculate()"
+                                    class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-lg sm:text-xl font-black bg-white pr-10">
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">원</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1.5 ml-1 uppercase tracking-wide">현재 연간 소모품비</label>
+                                <div class="relative">
+                                    <input type="number" id="currentConsumables" placeholder="1,000,000" oninput="calculate()"
+                                        class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-sm font-bold bg-white pr-10">
+                                    <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">원</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1.5 ml-1 uppercase tracking-wide">현재 연간 유지보수비</label>
+                                <div class="relative">
+                                    <input type="number" id="currentMaintenance" placeholder="2,000,000" oninput="calculate()"
+                                        class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 text-sm font-bold bg-white pr-10">
+                                    <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-sm">원</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── 결과부 ── -->
+                <div class="lg:col-span-3 space-y-5">
+                    <!-- 월 절감액 카드 -->
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-xl relative overflow-hidden">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div>
+                                <p class="text-blue-100 text-xs sm:text-sm font-bold mb-1">월 평균 에너지 절감액</p>
+                                <p class="text-3xl sm:text-4xl md:text-5xl font-black mt-1">약 <span id="saveAmount">0</span>원</p>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur px-3 py-1.5 rounded-xl text-sm font-black shrink-0">
+                                <span id="savePercent">70</span>% 절약
+                            </div>
+                        </div>
+                        <!-- 데코 아이콘 -->
+                        <div class="absolute -right-6 -bottom-6 opacity-[0.08] text-[140px] sm:text-[160px] leading-none">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                    </div>
+
+                    <!-- 누적 절감 카드 -->
+                    <div class="bg-navy text-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-xl relative overflow-hidden">
+                        <h4 class="text-base sm:text-lg font-black mb-5 flex items-center gap-2">
+                            <i class="fas fa-coins text-neon-green"></i> 누적 비용 절감액 (기대 수익)
+                        </h4>
+
+                        <div class="grid grid-cols-3 gap-3 sm:gap-4 relative z-10">
+                            <div class="bg-white/5 p-4 sm:p-5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition-all">
+                                <p class="text-slate-400 text-[10px] sm:text-xs font-bold mb-2">1년 누적</p>
+                                <p class="text-base sm:text-xl font-black text-white break-all"><span id="profit1yr">0</span><span class="text-xs font-bold ml-0.5">원</span></p>
+                            </div>
+                            <div class="bg-neon-green/10 p-4 sm:p-5 rounded-2xl border border-neon-green/20 text-center hover:bg-neon-green/15 transition-all">
+                                <p class="text-neon-green text-[10px] sm:text-xs font-bold mb-2">5년 누적</p>
+                                <p class="text-base sm:text-2xl font-black text-neon-green break-all"><span id="profit5yr">0</span><span class="text-xs font-bold ml-0.5">원</span></p>
+                            </div>
+                            <div class="bg-white/5 p-4 sm:p-5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition-all">
+                                <p class="text-slate-400 text-[10px] sm:text-xs font-bold mb-2">10년 누적</p>
+                                <p class="text-base sm:text-xl font-black text-white break-all"><span id="profit10yr">0</span><span class="text-xs font-bold ml-0.5">원</span></p>
+                            </div>
+                        </div>
+
+                        <p class="mt-5 text-[10px] text-slate-500 font-medium leading-relaxed">
+                            * 연간 에너지 절감액 + (현재 소모품/보수비 - 이온히팅 고정비 40만원)를 합산한 결과입니다.
+                        </p>
+                    </div>
+
+                    <!-- 상담 CTA -->
+                    <a href="#contact" id="calc-cta"
+                       class="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-500 text-white py-4 sm:py-5 rounded-2xl font-black text-base sm:text-lg transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98]">
+                        <i class="fas fa-paper-plane"></i> 이 금액으로 무료 상담 신청
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         성능 비교 그래프
+    ══════════════════════════════════════ -->
+    <section id="comparison" class="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <!-- 제목 -->
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-slate-900">검증된 압도적 효율</h2>
+                <span class="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-xl font-bold text-xs sm:text-sm border border-blue-100">
+                    <i class="fas fa-certificate mr-1 text-blue-500"></i>
+                    KCL 공인 테스트 결과: 히트펌프 대비 28.1% 고효율 검증 완료
+                </span>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+                <!-- 전기보일러 비교 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 card-hover">
+                    <h3 class="text-base sm:text-xl font-bold mb-6 sm:mb-8 flex items-center gap-2 text-slate-800">
+                        <i class="fas fa-chart-bar text-blue-600"></i>
+                        <span>전기보일러 대비 에너지 소비량</span>
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-2 text-slate-600">
+                                <span>기존 저항식 전기보일러</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-8 sm:h-10 rounded-full overflow-hidden">
+                                <div class="bg-slate-400 h-full rounded-full bar-animate" style="width:100%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-2 text-blue-600">
+                                <span>이온히팅 시스템</span>
+                                <span class="font-black">30% <span class="text-green-600">(70% 절약)</span></span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-8 sm:h-10 rounded-full overflow-hidden">
+                                <div class="bg-blue-500 h-full rounded-full bar-animate" style="width:30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 히트펌프 비교 -->
+                <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 card-hover">
+                    <h3 class="text-base sm:text-xl font-bold mb-6 sm:mb-8 flex items-center gap-2 text-green-700">
+                        <i class="fas fa-chart-line text-green-600"></i>
+                        <span>히트펌프 대비 에너지 소비량</span>
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-2 text-slate-600">
+                                <span>공기열 히트펌프</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-8 sm:h-10 rounded-full overflow-hidden">
+                                <div class="bg-slate-400 h-full rounded-full bar-animate" style="width:100%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-2 text-green-600">
+                                <span>이온히팅 시스템</span>
+                                <span class="font-black">70% <span class="text-green-600">(30% 절약)</span></span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-8 sm:h-10 rounded-full overflow-hidden">
+                                <div class="bg-green-500 h-full rounded-full bar-animate" style="width:70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         성공 사례
+    ══════════════════════════════════════ -->
+    <section id="case" class="py-16 sm:py-24 bg-navy text-white px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
+                <!-- 텍스트 -->
+                <div class="order-2 md:order-1">
+                    <span class="inline-block text-neon-green font-bold tracking-widest text-xs sm:text-sm bg-white/10 px-3 py-1.5 rounded-lg mb-5 sm:mb-6">
+                        REAL CASE STUDY
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mt-2 mb-5 sm:mb-6 text-white leading-tight">
+                        대진요양시설<br/>
+                        <span class="text-neon-green">5개월간 2,600만원</span> 절감
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed mb-7 sm:mb-8 font-medium text-sm sm:text-base">
+                        500평 규모의 대진요양시설에서 기름보일러를 이온히팅으로 교체한 결과,
+                        동절기 5개월 누적 기준 평균 <strong class="text-white">68%</strong>의 에너지 비용이 절감되었습니다.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="bg-white/5 p-5 sm:p-6 rounded-2xl border border-white/10 card-hover">
+                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold mb-1.5">기존 기름보일러</p>
+                            <p class="text-xl sm:text-2xl font-black text-slate-300">3,817만원</p>
+                        </div>
+                        <div class="bg-neon-green/10 p-5 sm:p-6 rounded-2xl border border-neon-green/30 card-hover">
+                            <p class="text-neon-green text-[10px] sm:text-xs font-bold mb-1.5">이온히팅 전환 후</p>
+                            <p class="text-xl sm:text-2xl font-black text-neon-green">1,217만원</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 리포트 카드 -->
+                <div class="order-1 md:order-2 glass p-6 sm:p-8 rounded-2xl sm:rounded-[2.5rem] shadow-2xl">
+                    <h4 class="text-base sm:text-xl font-bold mb-5 sm:mb-6 text-white flex items-center gap-2">
+                        <i class="fas fa-chart-pie text-neon-green"></i> 동절기 월별 절감 리포트
+                    </h4>
+                    <div class="space-y-3">
+                        <!-- 각 월 -->
+                        <div class="flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors p-3.5 sm:p-4 rounded-xl">
+                            <span class="font-bold text-sm sm:text-base">25년 11월</span>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block w-24 bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-neon-green h-full rounded-full" style="width:76%"></div>
+                                </div>
+                                <span class="text-neon-green font-black text-sm sm:text-base">76% 절감</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors p-3.5 sm:p-4 rounded-xl">
+                            <span class="font-bold text-sm sm:text-base">25년 12월</span>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block w-24 bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-neon-green h-full rounded-full" style="width:67%"></div>
+                                </div>
+                                <span class="text-neon-green font-black text-sm sm:text-base">67% 절감</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors p-3.5 sm:p-4 rounded-xl">
+                            <span class="font-bold text-sm sm:text-base">26년 1월</span>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block w-24 bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-neon-green h-full rounded-full" style="width:61%"></div>
+                                </div>
+                                <span class="text-neon-green font-black text-sm sm:text-base">61% 절감</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors p-3.5 sm:p-4 rounded-xl">
+                            <span class="font-bold text-sm sm:text-base">26년 2월</span>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block w-24 bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-neon-green h-full rounded-full" style="width:65%"></div>
+                                </div>
+                                <span class="text-neon-green font-black text-sm sm:text-base">65% 절감</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center bg-neon-green/10 border border-neon-green/30 p-3.5 sm:p-4 rounded-xl">
+                            <span class="font-bold text-sm sm:text-base">26년 3월</span>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block w-24 bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-neon-green h-full rounded-full" style="width:73%"></div>
+                                </div>
+                                <span class="text-neon-green font-black text-sm sm:text-base">73% 절감</span>
+                            </div>
+                        </div>
+
+                        <!-- 평균 -->
+                        <div class="mt-4 pt-4 border-t border-white/10 flex justify-between items-center">
+                            <span class="font-bold text-slate-300 text-sm">5개월 평균</span>
+                            <span class="text-neon-green font-black text-lg sm:text-2xl">68% 절감</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         상담 신청 폼
+    ══════════════════════════════════════ -->
+    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 gradient-bg text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-10 sm:gap-14 lg:gap-20 items-start md:items-center">
+
+                <!-- 왼쪽 어필 -->
+                <div class="flex-1 text-left">
+                    <h2 class="text-3xl sm:text-4xl font-black mb-6 sm:mb-8 leading-tight">
+                        사장님은 오직<br/><span class="text-neon-green">수익에만 집중</span>하세요
+                    </h2>
+
+                    <div class="space-y-5 sm:space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neon-green/20 p-3 rounded-xl shrink-0">
+                                <i class="fas fa-check text-neon-green"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base sm:text-lg mb-0.5">한전 ES 공식 파트너십</h4>
+                                <p class="text-slate-400 text-xs sm:text-sm font-medium">검증된 공신력으로 가장 안전한 에너지 효율화 사업 진행</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neon-green/20 p-3 rounded-xl shrink-0">
+                                <i class="fas fa-check text-neon-green"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base sm:text-lg mb-0.5">초기 부담 ZERO 분할 상환</h4>
+                                <p class="text-slate-400 text-xs sm:text-sm font-medium">절감된 에너지 요금으로 설치비를 분할 상환 (5년)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-neon-green/20 p-3 rounded-xl shrink-0">
+                                <i class="fas fa-check text-neon-green"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base sm:text-lg mb-0.5">유지보수 스트레스 해방</h4>
+                                <p class="text-slate-400 text-xs sm:text-sm font-medium">연간 40만원 수준의 합리적인 관리비로 안정적 운영</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 폼 카드 -->
+                <div class="w-full md:flex-1 md:max-w-[480px]">
+                    <div class="bg-white rounded-2xl sm:rounded-[2.5rem] p-6 sm:p-8 md:p-10 text-slate-900 shadow-2xl">
+                        <h3 class="text-xl sm:text-2xl font-black mb-1.5 flex items-center gap-2">
+                            <i class="fas fa-paper-plane text-blue-600"></i> 무료 상담 신청
+                        </h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mb-6 sm:mb-8 font-medium">사장님 업소에 맞는 최적의 설계안을 제안해 드립니다.</p>
+
+                        <form class="space-y-3 sm:space-y-4" onsubmit="return false;">
+                            <input id="form-name" type="text" placeholder="성함 또는 상호명"
+                                class="w-full px-4 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm sm:text-base font-bold placeholder-slate-400">
+                            <input id="form-tel" type="tel" pattern="[0-9]*" inputmode="numeric" placeholder="연락처 (숫자만 입력)"
+                                class="w-full px-4 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm sm:text-base font-bold placeholder-slate-400">
+                            <select id="form-biz" class="w-full px-4 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm sm:text-base font-bold text-slate-700 cursor-pointer">
+                                <option value="">업종 선택</option>
+                                <option value="목욕탕">목욕탕 / 사우나</option>
+                                <option value="모텔">호텔 / 모텔 / 숙박시설</option>
+                                <option value="원룸">원룸 / 오피스텔 / 기숙사</option>
+                                <option value="기타">요양원 / 공장 / 기타 시설</option>
+                            </select>
+                            <button id="form-submit" type="button" onclick="openKakaoChat()"
+                                class="w-full bg-blue-600 hover:bg-blue-500 active:scale-[0.98] text-white font-black py-4 sm:py-5 rounded-xl text-base sm:text-lg transition-all shadow-lg shadow-blue-500/20 mt-2">
+                                <i class="fas fa-comment mr-2"></i>카카오로 상담 신청하기
+                            </button>
+                        </form>
+
+                        <p class="text-center text-[10px] sm:text-xs text-slate-400 mt-4 font-medium">
+                            <i class="fas fa-lock mr-1"></i>개인정보는 상담 목적 외 사용되지 않습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         모바일 하단 고정 CTA 바
+    ══════════════════════════════════════ -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-[90] bottom-bar-safe bg-white/90 backdrop-blur-md border-t border-slate-100 px-4 pt-3 pb-4 flex gap-3">
+        <button onclick="sendToMe()" id="mobile-share-btn"
+            class="flex-1 bg-slate-100 active:bg-slate-200 text-slate-700 py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+            <i class="fas fa-share text-sm"></i> 나에게 보내기
+        </button>
+        <a href="http://pf.kakao.com/_fesxlX/chat" id="mobile-kakao-btn" target="_blank" rel="noopener"
+            class="flex-[2] bg-[#FEE500] active:bg-yellow-300 text-[#3c1e1e] py-3.5 rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-yellow-200 transition-all">
+            <i class="fas fa-comment text-sm"></i> 1:1 무료 상담
+        </a>
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         푸터
+    ══════════════════════════════════════ -->
+    <footer class="py-10 bg-navy text-slate-500 px-4 sm:px-6 text-center border-t border-white/5 pb-32 md:pb-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-center gap-2 font-black text-white/60 mb-4 text-sm">
+                <i class="fas fa-bolt text-amber-400"></i> 이온히팅
+            </div>
+            <p class="text-[10px] sm:text-xs font-bold tracking-widest mb-3 uppercase opacity-60">
+                KEPCO Energy Solution Partner | New Energy Co., Ltd.
+            </p>
+            <p class="text-[10px] leading-relaxed opacity-40 font-medium max-w-lg mx-auto">
+                본 시뮬레이션 결과는 사용자가 입력한 데이터를 바탕으로 하며,
+                실제 설치 환경(단열, 외기온도 등)에 따라 결과가 다를 수 있습니다.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ══════════════════════════════════════
+         스크립트
+    ══════════════════════════════════════ -->
+    <script>
+        /* ── 카카오채널 열기 ── */
+        function openKakaoChat() {
+            window.open('http://pf.kakao.com/_fesxlX/chat', '_blank', 'noopener');
+        }
+
+        /* ── 네비 스크롤 효과 ── */
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                nav.classList.add('bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        /* ── 스크롤 진입 시 요소 애니메이션 ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0-init');
+                    entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.opacity-0-init').forEach(el => observer.observe(el));
+
+        /* ── 나에게 보내기 ── */
+        function sendToMe() {
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url);
+            } else {
+                const t = document.createElement('input');
+                document.body.appendChild(t);
+                t.value = url;
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+            }
+
+            const msg = document.createElement('div');
+            msg.className = 'fixed top-20 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-5 py-3 rounded-full text-sm font-bold z-[200] animate-fadeIn shadow-2xl whitespace-nowrap';
+            msg.innerText = "📋 페이지 주소가 복사되었습니다!";
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 2800);
+        }
+
+        /* ── 절감 계산기 ── */
+        function calculate() {
+            const currentBill   = parseFloat(document.getElementById('currentBill').value)         || 0;
+            const energyType    = document.getElementById('energyType').value;
+            const curConsum     = parseFloat(document.getElementById('currentConsumables').value)  || 0;
+            const curMaint      = parseFloat(document.getElementById('currentMaintenance').value)  || 0;
+
+            const fmt  = n => n.toLocaleString('ko-KR');
+            const ionFixedCost = 400000; // 연간 고정비
+
+            let percent = 0;
+            switch(energyType) {
+                case 'electric':  percent = 0.70; break;
+                case 'oil':       percent = 0.60; break;
+                case 'heatpump':  percent = 0.30; break;
+                case 'gas':       percent = 0.60; break;
+                default:          percent = 0.50;
+            }
+
+            const monthlySaving      = Math.floor(currentBill * percent);
+            const annualEnergy       = monthlySaving * 12;
+            const annualMaintenance  = (curConsum + curMaint) - ionFixedCost;
+            const totalAnnual        = annualEnergy + annualMaintenance;
+
+            document.getElementById('saveAmount').innerText  = fmt(monthlySaving);
+            document.getElementById('savePercent').innerText = (percent * 100).toFixed(0);
+            document.getElementById('profit1yr').innerText   = fmt(Math.max(0, totalAnnual));
+            document.getElementById('profit5yr').innerText   = fmt(Math.max(0, totalAnnual * 5));
+            document.getElementById('profit10yr').innerText  = fmt(Math.max(0, totalAnnual * 10));
+        }
+    </script>
+</body>
+</html>
