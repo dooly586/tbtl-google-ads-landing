@@ -7,8 +7,6 @@
     <meta name="description" content="현대자동차, 롯데월드가 선택한 차세대 고효율 이온히팅 시스템. 에너지 비용 최대 70% 절감. 무료 방문 상담 신청.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- 카카오 JavaScript SDK -->
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
@@ -660,14 +658,9 @@
          스크립트
     ══════════════════════════════════════ -->
     <script>
-        /* ── 카카오 SDK 초기화 ── */
-        Kakao.init('96ac9e23e0b86e95560820b6ed0b2c81');
-
         /* ── 카카오채널 1:1 채팅 열기 ── */
         function openKakaoChat() {
-            Kakao.Channel.chat({
-                channelPublicId: '_fesxlX'
-            });
+            window.open('http://pf.kakao.com/_fesxlX/chat', '_blank', 'noopener');
         }
 
         /* ── 한국식 금액 포맷 (억원/만원/원) ── */
