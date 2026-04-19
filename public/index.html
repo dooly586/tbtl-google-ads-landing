@@ -620,6 +620,23 @@
     </section>
 
 
+    <!-- 전화번호 팝업 (PC용) -->
+    <div id="phone-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closePhoneModal()"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center">
+            <button onclick="closePhoneModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-4xl mb-4">📞</div>
+            <h3 class="text-lg font-black text-slate-800 mb-2">지금 바로 전화 상담</h3>
+            <p class="text-slate-500 text-sm mb-5">평일 오전 9시 ~ 오후 6시</p>
+            <a href="tel:01059673448" class="block text-3xl font-black text-blue-600 tracking-widest mb-5 hover:text-blue-500 transition-colors">
+                010-5967-3448
+            </a>
+            <p class="text-xs text-slate-400">번호를 눌러 전화하거나 직접 다이얼하세요</p>
+        </div>
+    </div>
+
     <!-- ══════════════════════════════════════
          모바일 하단 고정 CTA 바
     ══════════════════════════════════════ -->
@@ -660,6 +677,10 @@
     <script>
         function openKakaoChat() {
             window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
+        }
+
+        function closePhoneModal() {
+            document.getElementById('phone-modal').classList.add('hidden');
         }
 
         /* ── 한국식 금액 포맷 (억원/만원/원) ── */
@@ -795,7 +816,7 @@
             if (isMobile) {
                 window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
             } else {
-                window.location.href = 'tel:01059673448';
+                document.getElementById('phone-modal').classList.remove('hidden');
             }
         };
     </script>
