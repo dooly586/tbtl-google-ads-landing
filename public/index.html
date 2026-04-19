@@ -633,7 +633,7 @@
             <p class="text-3xl font-black text-blue-600 tracking-widest mb-5">
                 010-5967-3448
             </p>
-            <p class="text-xs text-slate-400">번호를 눌러 전화하거나 직접 다이얼하세요</p>
+            <p class="text-xs text-slate-400">번호 직접 다이얼하세요</p>
         </div>
     </div>
 
@@ -775,7 +775,7 @@
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+        import { getFirestore, doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
         const app = initializeApp({
             apiKey: "AIzaSyCqj-jv_c4cRkjOrLz0sQmv-huvCyRDS7w",
@@ -805,9 +805,9 @@
             }
 
             try {
-                await addDoc(collection(db, 'consultations'), {
+                await setDoc(doc(db, 'consultations', tel), {
                     name, tel, biz,
-                    createdAt: serverTimestamp()
+                    updatedAt: serverTimestamp()
                 });
             } catch (e) {
                 console.error('저장 오류:', e);

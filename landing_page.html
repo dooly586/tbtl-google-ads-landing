@@ -776,7 +776,7 @@
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+        import { getFirestore, doc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
         const app = initializeApp({
             apiKey: "AIzaSyCqj-jv_c4cRkjOrLz0sQmv-huvCyRDS7w",
@@ -806,9 +806,9 @@
             }
 
             try {
-                await addDoc(collection(db, 'consultations'), {
+                await setDoc(doc(db, 'consultations', tel), {
                     name, tel, biz,
-                    createdAt: serverTimestamp()
+                    updatedAt: serverTimestamp()
                 });
             } catch (e) {
                 console.error('저장 오류:', e);
