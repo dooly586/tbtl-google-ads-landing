@@ -766,6 +766,13 @@
         });
         const db = getFirestore(app);
 
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        const btn = document.getElementById('form-submit');
+        if (!isMobile) {
+            btn.innerHTML = '<i class="fas fa-phone mr-2"></i>전화로 상담 신청하기';
+        }
+
         window.submitConsultation = async function() {
             const name = document.getElementById('form-name').value.trim();
             const tel  = document.getElementById('form-tel').value.trim();
@@ -785,7 +792,11 @@
                 console.error('저장 오류:', e);
             }
 
-            window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
+            if (isMobile) {
+                window.open('https://open.kakao.com/o/scdpZGji', '_blank', 'noopener');
+            } else {
+                window.location.href = 'tel:01059673448';
+            }
         };
     </script>
 </body>
